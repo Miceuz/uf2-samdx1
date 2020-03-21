@@ -1,4 +1,4 @@
-BOARD=zero
+BOARD=feather_m0
 -include Makefile.user
 include boards/$(BOARD)/board.mk
 CC=arm-none-eabi-gcc
@@ -123,7 +123,7 @@ run: burn wait logs
 
 # This currently only works on macOS with a BMP debugger attached.
 # It's meant to flash the bootloader in a loop.
-BMP = $(shell ls -1 /dev/cu.usbmodem* | head -1)
+BMP = $(shell ls -1 /dev/ttyACM* | head -1)
 BMP_ARGS = --nx -ex "set mem inaccessible-by-default off" -ex "set confirm off" -ex "target extended-remote $(BMP)" -ex "mon tpwr enable" -ex "mon swdp_scan" -ex "attach 1"
 GDB = arm-none-eabi-gdb
 

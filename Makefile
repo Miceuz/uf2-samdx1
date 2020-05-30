@@ -1,4 +1,4 @@
-BOARD=feather_m0
+BOARD=radio_bus
 -include Makefile.user
 include boards/$(BOARD)/board.mk
 CC=arm-none-eabi-gcc
